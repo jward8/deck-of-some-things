@@ -19,12 +19,18 @@ class Card extends React.Component {
         var rows = [];
         var row = [];
         let cards = JSON.parse(JSON.stringify(cardTypes));
+        let x = 0;
+        let y = 0;
         for(var i = 1; i <= 22; i++){
+            const style = {
+                position: 'absolute',
+                transform: 'translate('+ x + 'em,'+ y +'em)',
+            };
             let num = this.getRandomInt(cards.length);
             let card = cards[num];
             cards.splice(num, 1);
             row.push(
-                <div className="card">
+                <div className="card" style={style}>
                     <div className="card-back">
                         <div key={i} className="card-body"></div>
                     </div>
@@ -35,6 +41,8 @@ class Card extends React.Component {
                     </div>
                 </div>
             );
+            x += -0.015625;
+            y += -0.015625;
         }
 
         rows.push(row);
@@ -44,7 +52,7 @@ class Card extends React.Component {
 
     render() {
         return(
-            <div className="card-container">{this.fullDeck()}</div>
+            <div className="deck">{this.fullDeck()}</div>
         );
     }
 }

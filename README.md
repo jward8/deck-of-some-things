@@ -1,4 +1,8 @@
-# Getting Started with Create React App
+# Deck of Some Things
+
+The Deck of Some Things is a online resource for players and DM to use for their games. Inspired by the DND's "Deck of Many Things", this application has the hopes to allow for groups that play online games to still use the item the way it was mean't to be used.
+
+Inspirated by [Dungeon and Daddies Ep. 44 "Deck Picks"](https://play.acast.com/s/dungeons-and-daddies/ep.44-cardsagainsthumanity)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -38,6 +42,17 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Roadmap
+
+- [x] Generate Full Deck of Cards
+- [x] Implement Functionality of the Cards Flipping
+- [] Rearrange the Card layout so that there is a "Deck" and a area for card selection
+- [] Allow for user input on how many cards they want to pick
+- [] Allow for the creator to select how many cards they want to have in the used deck
+- [] Implement way for users to share specific deck
+- [] Add visuals for each specific card
+- [] Deploy Site
 
 ## Learn More
 
