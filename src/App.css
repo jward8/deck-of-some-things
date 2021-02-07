@@ -2,6 +2,12 @@
   text-align: center;
 }
 
+*,
+*::before,
+*::after{
+  box-sizing: border-box;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -100,4 +106,109 @@ body{
 .card.flip {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
+}
+
+.logo_font {
+  font-family: 'Carter One', cursive;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 84px;
+  text-shadow: 2px 2px 4px #000000;
+  line-height: 120%;
+}
+
+.logo_box{
+  position: relative;
+  bottom: 200px;
+}
+
+.box_one{
+  width: 200px;
+  height: 280px;
+  background-color: rgb(66, 58, 58);
+  border-radius: 5px;
+  transform: rotate(-25deg);
+  position: relative;
+  left: 40px;
+  top: 40px;
+  padding: 0px;
+  z-index: -1;
+}
+
+.box_two{
+  width: 200px;
+  height: 280px;
+  background-color: rgb(66, 58, 58);
+  border-radius: 5px;
+  z-index: -1;
+  padding: 0px;
+}
+
+.box_three{
+  width: 200px;
+  height: 280px;
+  background-color: rgb(66, 58, 58);
+  transform: rotate(25deg);
+  border-radius: 5px;
+  padding: 0px;
+  z-index: -1;
+  position: relative;
+  right: 40px;
+  top: 40px;
+}
+
+.card_row{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 75px;
+}
+
+.home_row{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.home_title{
+  font-family: 'Carter One', cursive;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 72px;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.full-deck{
+  font-size: 2rem;
+  color: #fff;
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-gap: 0.5em;
+}
+
+.full-deck-input {
+  display: flex;
+}
+
+.full-deck-input input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.full-control {
+  display: block;
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 0.1em solid currentColor;
+  transform: translateY(-0.05em);
+}
+
+.full-label{
+  line-height: 1;
+}
+
+.full-deck-input input :checked + .full-control {
+  background: radial-gradient( #fff, #3B1F2B 51%);
 }
