@@ -178,37 +178,64 @@ body{
   text-shadow: 2px 2px 4px #000000;
 }
 
-.full-deck{
-  font-size: 2rem;
-  color: #fff;
-  display: grid;
-  grid-template-columns: min-content auto;
-  grid-gap: 0.5em;
-}
-
-.full-deck-input {
-  display: flex;
-}
-
-.full-deck-input input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.full-control {
+.deck-option{
   display: block;
-  width: 1em;
-  height: 1em;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 36px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  justify-content: center;
+  font-family: 'Carter One', cursive;
+  color: white;
+}
+
+.deck-option input{
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
   border-radius: 50%;
-  border: 0.1em solid currentColor;
-  transform: translateY(-0.05em);
 }
 
-.full-label{
-  line-height: 1;
+.deck-option:hover input ~ .checkmark {
+  background-color: #ccc;
 }
 
-.full-deck-input input :checked + .full-control {
-  background: radial-gradient( #fff, #3B1F2B 51%);
+.deck-option input:checked ~ .checkmark{
+  background-color: #2196F3;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.deck-option input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.deck-option .checkmark:after{
+  top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+.full_control {
+  display: flex;
 }
