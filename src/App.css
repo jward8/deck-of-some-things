@@ -239,3 +239,7 @@ body{
 .full_control {
   display: flex;
 }
+
+.logo_container{
+  height: 600px;
+}
