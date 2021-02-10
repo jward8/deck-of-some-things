@@ -217,6 +217,11 @@ body{
   background-color: #2196F3;
 }
 
+.deck-option input:disabled ~ .checkmark{
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .checkmark:after {
   content: "";
   position: absolute;
@@ -242,4 +247,9 @@ body{
 
 .logo_container{
   height: 600px;
+}
+
+#disabled{
+  cursor: not-allowed;
+  text-decoration: line-through;
 }
