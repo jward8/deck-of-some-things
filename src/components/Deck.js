@@ -50,10 +50,6 @@ class Deck extends React.Component{
     }
 
     componentDidMount(){
-        const { info } = this.props.match.params;
-        const { status } =  this.props.location.state;
-        console.log(this.props);
-        console.log(status);
     }
 
     cardsInDeck(numCards){

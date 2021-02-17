@@ -1,29 +1,32 @@
-import React, {useEffect} from 'react';
-import { useForm } from 'react-hook-form';
+import React, { useState } from 'react';
+import { Link } from  'react-router-dom'
 import Logo from './Logo';
+import { useDispatch} from 'react-redux';
+import { pullCards, DeckUpdate, isFull, isUsed } from '../redux/actions';
 
 export default function Home(){
-    const defaultValue = {
-        fullDeck: true,
-        numPull: 1
-    }
+    const dispatch = useDispatch();
+    const [deckSize, changeSize] = useState();
+    const [full, changeFull] = useState(true);
+    const [pull, changePull] = useState(1);
 
-    const { register, handleSubmit } = useForm({defaultValue});
-    const onSubmit = (data) => console.log(data); 
+    const handleSubmit = () => {
+        //do nothing
+    }
 
     return(
         <div className='home_row'>
         <Logo></Logo>
         <div className='home_options'>
             <h1 className='home_title'>What Deck?</h1>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit}>
                 <label className='deck-option'>Full
                     <span className='full_control'>
                         <input 
                             name="fullDeck"
                             type="radio" 
                             value={true}
-                            ref={register({required: true})}
+                            onChange={changeFull}
                             defaultChecked/>
                         <span className='checkmark'></span>
                     </span>
@@ -34,7 +37,7 @@ export default function Home(){
                             name="fullDeck"
                             type="radio" 
                             value={false}
-                            ref={register}
+                            onChange={changeFull}
                             disabled/>
                         <span className='checkmark'></span>
                     </span>
@@ -43,17 +46,20 @@ export default function Home(){
                     type="text" 
                     placeholder="How many are you pulling?" 
                     name="pullNum" 
-                    ref={register({required:true, max: 22, min: 1, pattern: /^[0-9]*$/i})} />
+                    ref={changePull} />
                 <br/>
-                {/* <Link to={{
-                    pathname: '/pull',
-                    state: {
-                        fullDeck: onSubmit.fullDeck,
-                        pullNum: onSubmit.pullNum
-                    }
-                    }}> */}
-                    <input type="submit"/>
-                {/* </Link> */}
+                <Link to={{
+                    pathname: '/pull'
+                    }}>
+                    <input type="submit" onClick={() => {
+                        dispatch(pullCards(pull.value));
+                        if(full){
+                            dispatch(isFull());
+                        }else{
+                            dispatch(isUsed());
+                        }
+                    }}/>
+                </Link>
             </form>
             
         </div>
